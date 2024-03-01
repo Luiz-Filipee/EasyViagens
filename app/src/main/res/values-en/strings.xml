@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alura Viajens</string>
+    <string name="especiais">Especial</string>
+    <string name="pais">Brazil</string>
+    <string name="sao_paulo">São Paulo</string>
+    <string name="dias">Days</string>
+    <string name="banner_inicial_dos_pacotes">BannerInicialDosPacotes</string>
+    <string name="imagem_cidade_banner">ImagemCidadeBanner</string>
+    <string name="preco_final">Preço final:</string>
+    <string name="realizar_pagamento">REALIZAR PAGAMENTO</string>
+    <string name="valordacompra">Valor da compra</string>
+    <string name="MM">MM</string>
+    <string name="AA">AA</string>
+    <string name="finalizar_compra">Finalizar Compra</string>
+</resources>

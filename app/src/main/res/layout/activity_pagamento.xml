@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.PagamentoActivity">
+
+    <TextView
+        android:id="@+id/pagamento_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/text_info_pagamento"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pagamento_preco_compra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/valordacompra"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pagamento_info" />
+
+    <TextView
+        android:id="@+id/pagamento_preco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/pagamento_preco_compra"
+        app:layout_constraintTop_toBottomOf="@+id/pagamento_preco_compra"
+        tools:src="@sample/pacotes.json/pacotes/preco" />
+
+    <Spinner
+        android:id="@+id/pagamento_parcelado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pagamento_preco"
+        app:layout_constraintStart_toEndOf="@+id/pagamento_preco"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/pagamento_numero_cartao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/n_mero_do_cart_o"
+        android:inputType="number"
+        android:maxLength="16"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pagamento_preco"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/pagamento_numero_MM"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:hint="@string/MM"
+        android:inputType="number"
+        android:maxLength="2"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/pagamento_numero_CVC"
+        app:layout_constraintEnd_toStartOf="@id/pagamento_numero_AA"
+        app:layout_constraintStart_toStartOf="@id/pagamento_numero_cartao"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/pagamento_numero_AA"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:hint="@string/AA"
+        android:inputType="number"
+        android:maxLength="2"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/pagamento_numero_CVC"
+        app:layout_constraintStart_toEndOf="@id/pagamento_numero_MM"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/pagamento_numero_CVC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/ic_cvc_cartao_de_credito"
+        android:hint="@string/CVC"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/pagamento_numero_cartao"
+        app:layout_constraintTop_toBottomOf="@id/pagamento_numero_cartao"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/pagamento_numero_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:digits="@string/mascara_nome_cartao"
+        android:hint="@string/nome_do_cart_o"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pagamento_numero_CVC"
+        tools:ignore="TouchTargetSizeCheck"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/pagamento_finalizar_compra"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/background_button"
+        android:text="@string/finalizar_compra"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pagamento_numero_nome" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Alura Viajens</string>
+    <string name="especiais">Especiais</string>
+    <string name="pais">Brasil</string>
+    <string name="sao_paulo">São Paulo</string>
+    <string name="dias">2 Dias</string>
+    <string name="banner_inicial_dos_pacotes">BannerInicialDosPacotes</string>
+    <string name="imagem_cidade_banner">ImagemCidadeBanner</string>
+    <string name="preco_final">Preço final:</string>
+    <string name="realizar_pagamento">REALIZAR PAGAMENTO</string>
+    <string name="exemplo_data">08 de dezembro - 10 de dezembro de 2017</string>
+    <string name="text_info_pagamento">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
+    <string name="valordacompra">Valor da compra</string>
+    <string name="n_mero_do_cart_o">Número do Cartão</string>
+    <string name="MM">MM</string>
+    <string name="AA">AA</string>
+    <string name="nome_do_cart_o">Nome do cartão</string>
+    <string name="finalizar_compra">Finalizar Compra</string>
+    <string name="CVC">CVC</string>
+    <string name="mascara_nome_cartao">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
+    <string-array name="parcelas">
+        <item>Parcelas</item>
+        <item>2x sem juros</item>
+        <item>3x sem juros</item>
+        <item>4x sem juros</item>
+        <item>5x sem juros</item>
+    </string-array>
+</resources>
