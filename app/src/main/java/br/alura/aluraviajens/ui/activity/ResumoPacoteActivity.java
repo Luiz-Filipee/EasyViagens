@@ -1,7 +1,6 @@
 package br.alura.aluraviajens.ui.activity;
 
 import static br.alura.aluraviajens.ui.activity.ConstantesActivity.CHAVE_PACOTE;
-import static br.alura.aluraviajens.ui.activity.ConstantesActivity.CHAVE_RESUMO;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -9,17 +8,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import br.alura.aluraviajens.R;
 import br.alura.aluraviajens.model.Pacote;
@@ -31,22 +24,14 @@ import br.alura.aluraviajens.util.ResourcesUtil;
 public class ResumoPacoteActivity extends AppCompatActivity {
 
     private static final String RESUMO_PACOTE = "Resumo do Pacote";
-    private Pacote pacote;
-    private ImageView imagemBanner;
-    private TextView dias;
-    private TextView preco;
-    private TextView data;
-    private TextView local;
-    private EditText textoBusca;
-    private Button botaoRealizarPagamento;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_pacote);
-        inicializaCampos();
-        carregaInfo();
-        configuraBotaoRealizarPagamento();
+        setTitle(RESUMO_PACOTE);
+        carregaPacoteRecebido();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -61,75 +46,68 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         }
     }
 
-    private void inicializaCampos() {
-        imagemBanner = findViewById(R.id.resumo_pacote_banner);
-        dias = findViewById(R.id.resumo_pacote_dias);
-        data = findViewById(R.id.resumo_pacote_data);
-        local = findViewById(R.id.resumo_pacote_local);
-        preco = findViewById(R.id.resumo_pacote_preco);
-        botaoRealizarPagamento = findViewById(R.id.resumo_pacote_button);
-    }
-
-    private void carregaInfo() {
+    private void carregaPacoteRecebido() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_PACOTE)) {
-            setTitle(RESUMO_PACOTE);
-            pacote = (Pacote) dados.getSerializableExtra(CHAVE_PACOTE);
-            preencheCampos();
+            final Pacote pacote = (Pacote) dados.getSerializableExtra(CHAVE_PACOTE);
+
+            inicializaCampos(pacote);
+            configuraBotaoo(pacote);
         }
     }
 
-    private void preencheCampos() {
-        mostraImagem();
-        mostraDias();
-        mostraData();
-        mostraLocal();
-        mostraPreco();
+    private void inicializaCampos(Pacote pacote) {
+        mostraImagem(pacote);
+        mostraDias(pacote);
+        mostraData(pacote);
+        mostraLocal(pacote);
+        mostraPreco(pacote);
     }
 
-    private void mostraLocal() {
+    private void mostraLocal(Pacote pacote) {
+        TextView local = findViewById(R.id.resumo_pacote_local);
         local.setText(pacote.getLocal());
     }
 
-    private void mostraDias() {
+    private void mostraDias(Pacote pacote) {
+        TextView dias = findViewById(R.id.resumo_pacote_dias);
         String daysInText = DaysUtil.formatDaysInText(pacote.getDias());
         dias.setText(daysInText);
     }
 
-    private void mostraImagem() {
+    private void mostraImagem(Pacote pacote) {
+        ImageView imagemBanner = findViewById(R.id.resumo_pacote_banner);
         Drawable drawablePackageImage = ResourcesUtil.getDrawable(this, pacote.getImage());
         imagemBanner.setImageDrawable(drawablePackageImage);
     }
 
-    private void mostraPreco() {
+    private void mostraPreco(Pacote pacote) {
+        TextView preco = findViewById(R.id.resumo_pacote_preco);
         String currencyBrazilian = CurrencyUtil.formatCurrencyBrazilian(pacote.getPreco());
         preco.setText(currencyBrazilian);
     }
 
-    private void mostraData() {
+    private void mostraData(Pacote pacote) {
+        TextView data = findViewById(R.id.resumo_pacote_data);
         String dataFormatadaDaViajem = DataUtil.periodoEmTexto(pacote.getDias());
         data.setText(dataFormatadaDaViajem);
     }
 
-    private void configuraBotaoRealizarPagamento(){
+    private void configuraBotaoo(final Pacote pacote) {
+        Button botaoRealizarPagamento = findViewById(R.id.resumo_pacote_button);
         botaoRealizarPagamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               abreTelaPagamento();
+                vaiParaPagamento(pacote);
             }
         });
     }
 
-    private void abreTelaPagamento() {
-        if(pacote != null && pacote.getPreco() != null){
-            Intent abrePagamentoActvity = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
-            String precoPacoteString = pacote.getPreco().toString();
-            abrePagamentoActvity.putExtra(CHAVE_RESUMO, precoPacoteString);
-            startActivity(abrePagamentoActvity);
-        }else{
-            Toast.makeText(ResumoPacoteActivity.this, "Pacote inválido", Toast.LENGTH_SHORT).show();
-        }
-    }
+    private void vaiParaPagamento(Pacote pacote) {
+        Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent);
 
+    }
 
 }

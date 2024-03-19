@@ -7,10 +7,21 @@
     <string name="dias">Days</string>
     <string name="banner_inicial_dos_pacotes">BannerInicialDosPacotes</string>
     <string name="imagem_cidade_banner">ImagemCidadeBanner</string>
-    <string name="preco_final">Preço final:</string>
-    <string name="realizar_pagamento">REALIZAR PAGAMENTO</string>
-    <string name="valordacompra">Valor da compra</string>
+    <string name="preco_final">Final price:</string>
+    <string name="realizar_pagamento">MAKE PAYMENT</string>
+    <string name="valordacompra">Purchase value</string>
     <string name="MM">MM</string>
     <string name="AA">AA</string>
-    <string name="finalizar_compra">Finalizar Compra</string>
+    <string name="finalizar_compra">Finalize purchase</string>
+    <string name="parabens">Parabéns!</string>
+    <string name="confira_o_resumo_da_compra">Check the purchase summary:</string>
+    <string name="buscar_edit_text">Search...</string>
+    <string name="exemplo_data">08/12 - 10/12 de 2017</string>
+    <string name="text_info_pagamento">Enter the credit card information you want to use for payment</string>
+    <string name="nome_do_cart_o">Card name</string>
+    <string name="n_mero_do_cart_o">Card number</string>
+    <string name="compra_realizada_com_sucesso">Purchase made successfully:)</string>
+    <string name="mascara_nome_cartao">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
+    <string name="CVC">CVC</string>
+    <string name="floating_button_home">floatingbuttonhome</string>
 </resources>

@@ -8,7 +8,7 @@
     <string name="imagem_cidade_banner">ImagemCidadeBanner</string>
     <string name="preco_final">Preço final:</string>
     <string name="realizar_pagamento">REALIZAR PAGAMENTO</string>
-    <string name="exemplo_data">08 de dezembro - 10 de dezembro de 2017</string>
+    <string name="exemplo_data">08/12 - 10/12 de 2017</string>
     <string name="text_info_pagamento">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
     <string name="valordacompra">Valor da compra</string>
     <string name="n_mero_do_cart_o">Número do Cartão</string>
@@ -18,6 +18,11 @@
     <string name="finalizar_compra">Finalizar Compra</string>
     <string name="CVC">CVC</string>
     <string name="mascara_nome_cartao">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
+    <string name="parabens">Parabéns!</string>
+    <string name="compra_realizada_com_sucesso">Compra realizada com sucesso :)</string>
+    <string name="confira_o_resumo_da_compra">Confira o resumo da compra:</string>
+    <string name="buscar_edit_text">Buscar...</string>
+    <string name="floating_button_home">floatingbuttonhome</string>
     <string-array name="parcelas">
         <item>Parcelas</item>
         <item>2x sem juros</item>

@@ -13,12 +13,25 @@
         android:theme="@style/Theme.AluraViajens"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/AppCompat.TelaCheia">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.ResumoCompraActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.PagamentoActivity"
             android:exported="false"
             android:parentActivityName=".ui.activity.ResumoPacoteActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activity.ResumoPacoteActivity"/>
+                android:value=".ui.activity.ResumoPacoteActivity" />
         </activity>
         <activity
             android:name=".ui.activity.ResumoPacoteActivity"
@@ -26,17 +39,11 @@
             android:parentActivityName=".ui.activity.ListaPacotesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activity.ListaPacotesActivity"/>
+                android:value=".ui.activity.ListaPacotesActivity" />
         </activity>
         <activity
             android:name=".ui.activity.ListaPacotesActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
     </application>
 
 </manifest>

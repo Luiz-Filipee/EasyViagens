@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,11 +40,29 @@ public class ListaPacotesActivity extends AppCompatActivity {
         textoBusca = findViewById(R.id.lista_pacotes_pesquisa);
         ListView listaDePacotes = findViewById(R.id.lista_pacotes_listview);
         List<Pacote> pacotes = new PacoteDAO().lista();
-        configuraListetnerDeCliquePorItem(listaDePacotes);
         listaDePacotes.setAdapter(new ListaPacotesAdapter(pacotes, this));
+        listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Pacote pacoteClicado = pacotes.get(position);
+                vaiParaResumoPacote(pacoteClicado);
+            }
+        });
+    }
+
+    private void vaiParaResumoPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacoteClicado);
+        startActivity(intent);
     }
 
     private void configuraBotaoPesquisar(){
+        textoBusca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textoBusca.setHint(null);
+            }
+        });
         textoBusca.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -78,16 +97,4 @@ public class ListaPacotesActivity extends AppCompatActivity {
         }
     }
 
-    private void configuraListetnerDeCliquePorItem(ListView listaDePacotes){
-        listaDePacotes.setOnItemClickListener((parent, view, position, id) -> {
-            Pacote pacote = (Pacote) parent.getItemAtPosition(position);
-            abreResumoPacoteActivity(pacote);
-        });
-    }
-
-    private void abreResumoPacoteActivity(Pacote pacote){
-        Intent abreFormularioAcitivity = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
-        abreFormularioAcitivity.putExtra(CHAVE_PACOTE, pacote);
-        startActivity(abreFormularioAcitivity);
-    }
 }
